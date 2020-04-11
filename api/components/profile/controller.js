@@ -5,27 +5,34 @@ module.exports = function (injectedStore) {
 
   async function list() {
     const list = await store.list(TABLE);
-    console.log(list)
     return list
   }
 
-  function get(id) {
-    return store.get(TABLE, id);
+  async function get(id) {
+    const profile = await store.get(TABLE, id);
+    return profile;
   }
 
- /*  async function upsert(body) {
-    const post = {
-      id: body.id || nanoid(),
-      text: body.text,
-      user: body.user,
-    }
+  async function insert(profile) {
+    const profileInserted = await store.insert(TABLE, profile);
+    return profileInserted;
+  }
 
-    return store.upsert(TABLE, post);
-  } */
+  async function update(id, profile) {
+    const profileUpdated = await store.update(TABLE, id, profile);
+    return profileUpdated;
+  }
+
+  async function remove(id) {
+    const profileDeleted = await store.delete(TABLE, id);
+    return profileDeleted;
+  }
 
   return {
     list,
     get,
-    //upsert
+    insert,
+    update,
+    remove
   };
 }
