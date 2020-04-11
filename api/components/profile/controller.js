@@ -14,11 +14,15 @@ module.exports = function (injectedStore) {
   }
 
   async function insert(profile) {
+    const InsertedAt = Date.now();
+    profile = {...profile, InsertedAt};
     const profileInserted = await store.insert(TABLE, profile);
     return profileInserted;
   }
 
   async function update(id, profile) {
+    const UpdatedAt = Date.now();
+    profile = {...profile, UpdatedAt};
     const profileUpdated = await store.update(TABLE, id, profile);
     return profileUpdated;
   }
