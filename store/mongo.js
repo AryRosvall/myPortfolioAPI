@@ -48,21 +48,31 @@ class MongoLib {
     return this.connect().then((db) => {
       return db.collection(collection).insertOne(data);
     })
-      .then(result => result.insertedId);
+      .then(result => (
+        {
+          insertedId: result.insertedCount > 0 ? result.insertedId : 0,
+          insertedCount: result.insertedCount
+        })
+      );
   }
 
   update(collection, id, data) {
     return this.connect().then((db) => {
-      return db.collection(collection).updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: true });
+      return db.collection(collection).updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: false });
     })
-      .then(result => result.upsertedId || id);
+      .then(result => (
+        {
+          updatedId: result.modifiedCount > 0 ? id : 0,
+          updatedCount: result.modifiedCount
+        })
+      );
   }
 
   delete(collection, id) {
     return this.connect().then((db) => {
       return db.collection(collection).deleteOne({ _id: ObjectId(id) });
     })
-      .then(() => id);
+      .then((result) => ({ deletedCount: result.deletedCount }));
   }
 }
 
