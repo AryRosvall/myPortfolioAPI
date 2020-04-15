@@ -1,13 +1,16 @@
 const express = require('express');
 const response = require('../../../network/response');
 const Controller = require('./index');
+const { experienceIdSchema, createExperienceSchema, updateExperienceSchema } = require('./schema');
+const validation = require('../../../utils/middleware/validationHandler');
+
 
 const router = express.Router();
 
 router.get('/', list);
 router.get('/:id', get);
-router.post('/', insert);
-router.put('/:id', update);
+router.post('/', validation(createExperienceSchema), insert);
+router.put('/:id', validation({ id: experienceIdSchema }, "params"), validation(updateExperienceSchema), update);
 router.delete('/:id', remove);
 
 
