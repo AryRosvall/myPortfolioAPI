@@ -2,6 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   remoteDB: process.env.REMOTEDB,
+  cors: process.env.CORS,
   api: {
     port: process.env.API_PORT,
   },
