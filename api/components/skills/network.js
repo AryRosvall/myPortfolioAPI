@@ -1,13 +1,15 @@
 const express = require('express');
 const response = require('../../../network/response');
 const Controller = require('./index');
+const { skillIdSchema, createSkillSchema, updateSkillSchema } = require('./schema');
+const validation = require('../../../utils/middleware/validationHandler');
 
 const router = express.Router();
 
 router.get('/', list);
 router.get('/:id', get);
-router.post('/', insert);
-router.put('/:id', update);
+router.post('/', validation(createSkillSchema), insert);
+router.put('/:id', validation({ id: skillIdSchema }, "params"), validation(updateSkillSchema), update);
 router.delete('/:id', remove);
 
 
