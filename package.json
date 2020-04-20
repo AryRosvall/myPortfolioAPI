@@ -4,9 +4,8 @@
   "description": "My portfolio API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon api/index.js",
-    "start": "echo \"Error: no test specified\" && exit 1"
+    "start": "node api/index.js"
   },
   "keywords": [
     "node",
