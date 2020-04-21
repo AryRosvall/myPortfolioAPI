@@ -2,6 +2,9 @@
   "name": "portfolioapi",
   "version": "1.0.0",
   "description": "My portfolio API",
+  "engines": {
+    "node": "12.16.x"
+  },
   "main": "api/index.js",
   "scripts": {
     "dev": "nodemon api/index.js",
