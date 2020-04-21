@@ -25,6 +25,10 @@ app.use('/api/academic', academic);
 app.use('/api/skill', skills);
 app.use('/api/project', projects);
 
+app.get('/', function (req, res) {
+  res.redirect('/api/profile');
+});
+
 
 app.listen(config.api.port, () => {
   console.log('Listening in port ', config.api.port);

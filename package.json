@@ -2,11 +2,10 @@
   "name": "portfolioapi",
   "version": "1.0.0",
   "description": "My portfolio API",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon api/index.js",
-    "start": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node api/index.js"
   },
   "keywords": [
     "node",
