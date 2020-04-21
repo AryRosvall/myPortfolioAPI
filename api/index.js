@@ -30,6 +30,6 @@ app.get('/', function (req, res) {
 });
 
 
-app.listen(config.api.port, () => {
+app.listen(config.api.port || 3001, () => {
   console.log('Listening in port ', config.api.port);
 });
