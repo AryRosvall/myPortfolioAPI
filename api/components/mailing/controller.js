@@ -17,7 +17,7 @@ module.exports = function () {
       from: content.from,
       to: content.to,
       subject: content.subject,
-      text: content.text,
+      text: content.message,
       html: content.html
     };
 
