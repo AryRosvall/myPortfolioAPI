@@ -8,7 +8,6 @@ const router = express.Router();
 router.post('/', validation(emailSchema), sendEmail);
 
 function sendEmail(req, res, next) {
-  console.log(Controller)
   Controller.sendEmail(req.body)
     .then((sendEmail) => {
       response.success(req, res, sendEmail, 200)
