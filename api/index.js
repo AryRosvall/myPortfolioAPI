@@ -7,6 +7,7 @@ const academic = require('./components/academics/network');
 const skills = require('./components/skills/network');
 const projects = require('./components/projects/network');
 const email = require('./components/mailing/network');
+const cors = require('cors');
 
 //Initialize app
 const app = express();
@@ -14,10 +15,7 @@ const app = express();
 app.use(express.json());
 
 //Habilitate CORS only to the frontend URL
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', config.cors);
-  next();
-});
+app.use(cors({ origin: true, credentials: true }));
 
 app.get('/', function (req, res) {
   res.redirect('/api/profile');
