@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "NODE_ENV=production node server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "node",
