@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   cors: process.env.CORS,
   api: {
-    port: process.env.API_PORT || 3000,
+    port: process.env.API_PORT,
   },
   mongo: {
     host: process.env.MONGO_HOST,
