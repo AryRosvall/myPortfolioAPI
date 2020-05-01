@@ -5,10 +5,10 @@
   "engines": {
     "node": "12.16.x"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon api/index.js",
-    "start": "NODE_ENV=production node api/index.js"
+    "dev": "nodemon server.js",
+    "start": "NODE_ENV=production node server.js"
   },
   "keywords": [
     "node",
