@@ -1,16 +1,19 @@
 const express = require('express');
+const passport = require('passport');
 const response = require('../../../network/response');
 const Controller = require('./index');
 const { profileIdSchema, createProfileSchema, updateProfileSchema } = require('./schema');
 const validation = require('../../../utils/middleware/validationHandler');
 
+require('../../../auth/strategies/jwt');
+
 const router = express.Router();
 
 router.get('/', list);
 router.get('/:id', get);
-router.post('/', validation(createProfileSchema), insert);
-router.put('/:id', validation({ id: profileIdSchema }, "params"), validation(updateProfileSchema), update);
-router.delete('/:id', remove);
+router.post('/', passport.authenticate('jwt', { session: false }), validation(createProfileSchema), insert);
+router.put('/:id', passport.authenticate('jwt', { session: false }), validation({ id: profileIdSchema }, "params"), validation(updateProfileSchema), update);
+router.delete('/:id', passport.authenticate('jwt', { session: false }), remove);
 
 
 function list(req, res, next) {

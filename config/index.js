@@ -5,6 +5,13 @@ module.exports = {
   api: {
     port: process.env.PORT,
   },
+  auth: {
+    authUser: process.env.AUTH_USER,
+    authPassword: process.env.AUTH_PASSWORD,
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
   mongo: {
     host: process.env.MONGO_HOST,
     user: process.env.MONGO_USER,

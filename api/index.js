@@ -5,6 +5,7 @@ const academic = require('./components/academics/network');
 const skills = require('./components/skills/network');
 const projects = require('./components/projects/network');
 const email = require('./components/mailing/network');
+const auth = require('./components/auth/network');
 
 
 module.exports = (app) => {
@@ -16,5 +17,6 @@ module.exports = (app) => {
   app.use('/api/skill', skills);
   app.use('/api/project', projects);
   app.use('/api/email', email);
+  app.use('/api/auth', auth);
 
 }
