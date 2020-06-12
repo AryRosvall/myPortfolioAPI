@@ -32,7 +32,7 @@ class MongoLib {
 
   list(collection, query) {
     return this.connect().then(db => {
-      return db.collection(collection).find(query).toArray();
+      return db.collection(collection).find(query).sort({ order: -1 }).toArray();
     });
   }
 
